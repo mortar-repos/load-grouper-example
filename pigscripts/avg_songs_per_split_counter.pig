@@ -6,5 +6,5 @@ songs_all = GROUP songs ALL;
  
 avg_split_song_count = FOREACH songs_all GENERATE AVG(songs.count) as avg_song_count, $ITERATION_NUM as iter_num;
 
-rmf s3n://hawk-dev-sandbox/$MORTAR_EMAIL_S3_ESCAPED/$ITERATION_NUM/top_density_songs;
-STORE avg_split_song_count INTO 's3n://hawk-dev-sandbox/$MORTAR_EMAIL_S3_ESCAPED/$ITERATION_NUM/avg_split_song_count' USING PigStorage('\t');
+rmf s3n://mortar-example-output-data/$MORTAR_EMAIL_S3_ESCAPED/$ITERATION_NUM/avg_split_song_count;
+STORE avg_split_song_count INTO 's3n://mortar-example-output-data/$MORTAR_EMAIL_S3_ESCAPED/$ITERATION_NUM/avg_split_song_count' USING PigStorage('\t');
