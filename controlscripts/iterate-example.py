@@ -5,14 +5,14 @@ def run_script():
     # compile the pig code
     for i in range(10):
         print 'Run %s started!' % i
-        P = Pig.compileFromFile("../pigscripts/average_file_count.pig")
+        P = Pig.compileFromFile("../pigscripts/avg_songs_per_split_counter.pig")
 
         bound = P.bind({"ITERATION_NUM":i})
 
         ps = bound.runSingle()
         print 'Run %s done!' % i
 
-        result = ps.result("avg_file_count")
+        result = ps.result("avg_split_song_count")
         for r in result.iterator():
             print r
 
