@@ -5,7 +5,7 @@ def run_script():
     # compile the pig code
     for i in range(10):
         print 'Run %s started!' % i
-        P = Pig.compileFromFile("../pigscripts/load_grouper.pig")
+        P = Pig.compileFromFile("../pigscripts/average_file_count.pig")
 
         bound = P.bind({"ITERATION_NUM":i})
 

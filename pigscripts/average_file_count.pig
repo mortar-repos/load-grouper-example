@@ -1,4 +1,4 @@
-REGISTER '../../load-grouper/target/load-grouper-1.0-SNAPSHOT.jar';
+REGISTER '../load-grouper/target/load-grouper-1.0-SNAPSHOT.jar';
 
 songs = LOAD 's3n://tbmmsd/A.tsv.*' USING com.mortardata.pig.LoadGrouperFunc() AS (filename:chararray, split_index:chararray, count:int);
  
