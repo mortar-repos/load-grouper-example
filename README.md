@@ -15,6 +15,7 @@ This Mortar project includes some example code to show how you could implement a
         mortar register load-grouper-example
 
 Once everything is set up you can run this example by doing:
+
         mortar run iterate-example
 
 # What's Inside
@@ -28,7 +29,8 @@ The load-grouper directory contains a small Java project for building a Pig load
 This LoadGrouper implementation simply counts the number of data rows in the split and emits a single tuple with the split file name, the split index, and that count.
 
 To build the LoadGrouper simply go to the load-grouper directory and run: 
-    mvn install 
+
+        mvn install 
 
 ### Control Script
 
@@ -44,5 +46,6 @@ The file ./controlscripts/iterate-example.py is the top level script that we're 
 The file ./pigscripts/avg\_songs\_per\_split\_counter.pig is a standard pig script that uses the LoadGrouper UDF above to load a number of files from the public Millionsong Dataset and count how many songs end up being in each input split.  After that we average that count across all splits and save that out to S3.
 
 Notice that while this script can be called from our jython control script its just a standard pig script and as such we could run it using:
+
         mortar run avg_songs_per_split_counter -p ITERATION_NUM=0
 
